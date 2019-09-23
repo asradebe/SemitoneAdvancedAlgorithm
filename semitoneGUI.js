@@ -1,4 +1,4 @@
-modulel.exports = class JamBuddy {
+module.exports = class JamBuddy {
     constructor(notes, result, rightAnswer) {
         this.notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         this.result = result;
@@ -28,5 +28,4 @@ modulel.exports = class JamBuddy {
     }
 }
 
-var verify = new JamBuddy()
 

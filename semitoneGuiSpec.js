@@ -1,13 +1,14 @@
-describe("JamBuddy", function() {
-    //arrange
-     this.notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+    const jsdom = require('jsdom')
+    const {JSDOM} = jsdom
+    const {document} = new JSDOM 
+    JamBuddy = require("../semitone-part2/semitoneGUI.js")
+    verify = new JamBuddy()
+    describe("JamBuddy", function() {
+    it("jamBuddy should be defined", function() {
+    expect(JamBuddy).toBeDefined()
+    });
 
-    // act
-    notes = JamBuddy(this.notes);
-
-    // assert
-    expect(notes).toBe(this.notes)
-    })
-   it("selectNotes should randomize the array and return two new letters in the array", function() {
-    expect(JamBuddy.selectNotes()).toBe(this.notes)
-})
+    it("select notes should be defined", function() {
+        expect(verify.selectNotes()).toBeDefined()
+    });
+});
