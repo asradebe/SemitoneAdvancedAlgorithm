@@ -1,5 +1,5 @@
 class JamBuddy {
-  constructor(notes, selectedSemitoneNotes, rightAnswer) {
+  constructor(notes, selectedSemitoneNotes, rightAnswer, inputNumber) {
     this.notes = ['A',
       ['A#', 'B♭'],
       'B',
@@ -15,8 +15,13 @@ class JamBuddy {
     ];
     this.selectedSemitoneNotes = selectedSemitoneNotes;
     this.rightAnswer = rightAnswer;
+    this.inputNumber = inputNumber;
   }
+
+  
+
   // selectNotes randomizes the array and returns two new letters in the array
+  
   selectNotes() {
     let array = [...this.notes];
 
@@ -37,13 +42,15 @@ class JamBuddy {
   }
 
   checkAnswer() {
+    let score = 0;
 
-    let inputNumber = Number(window.document.getElementById('value').value);
+    this.inputNumber = Number(window.document.getElementById('value').value);
 
     this.rightAnswer = Math.abs(this.notes.indexOf(this.selectedSemitoneNotes[1]) - this.notes.indexOf(this.selectedSemitoneNotes[0]));
 
 
-    if (inputNumber === this.rightAnswer) {
+    if (this.inputNumber === this.rightAnswer) {
+      document.getElementById('score').innerHTML = score + 1
       return window.document.getElementById('answer').innerHTML = `Super! You got it right`;
     } else {
       return window.document.getElementById('answer').innerHTML = `Sorry! The answer is ${this.rightAnswer}. Try again`;
@@ -53,13 +60,34 @@ class JamBuddy {
   }
 
   scoreCounter() {
+    let score = 0; 
+    if(this.inputNumber === this.rightAnswer){
+      let points = score + 1; 
+      return document.getElementById('score').value = points;
+    } else{
+      return document.getElementById('message').innerHTML = `Sorry, you're going to have to start again`
+    }
 
   }
-}
+
+
+  
+  
+
+    hide(){
+    let x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+}   
 
 let verify = new JamBuddy()
 verify.selectNotes()
 verify.checkAnswer()
+verify.revealAnswer();
+verify.hide();
 
-
-// module.exports = verify;
+module.exports = verify;

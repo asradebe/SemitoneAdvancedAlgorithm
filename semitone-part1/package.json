@@ -1,0 +1,15 @@
+{
+  "name": "algorithmic-ps",
+  "version": "1.0.0",
+  "description": "music one thing or another",
+  "main": "semitone.js",
+  "scripts": {
+    "test": "jasmine semitone.spec.js"
+  },
+  "author": "Dimpho Ramodise",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.4.0",
+    "nodemon": "^1.19.2"
+  }
+}
